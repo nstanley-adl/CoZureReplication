@@ -1,0 +1,4 @@
+index,activity_name,commands(0..n)
+0,UploadToBlob,0
+1,ListBlobs,1
+2,DownloadFromBlob,2
