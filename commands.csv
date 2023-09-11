@@ -2,3 +2,24 @@ index,command_text
 0,az storage blob upload --account-name <storage-account> --container-name <container> --name myFile.txt --file myFile.txt --auth-mode login
 1,az storage blob list --account-name <storage-account> --container-name <container> --output table --auth-mode login
 2,az storage blob download --account-name <storage-account> --container-name <container> --name myFile.txt --file <~/destination/path/for/file> --auth-mode login
+3,az vm create --resource-group <resource-group> --size <vm-size> --name <vm-name> --image <vm-image> --admin-username <vm-admin-username> --generate-ssh-keys --assign-identity --location <region> --scope <scope> --role <role>
+4,az vm extension set --resource-group <resource-group> --vm-name <vm-name> --name <extension-name> --publisher <extension-publisher>
+5,az login --identity
+6,az identity create -g <resource-group> -n <identity-name> --location <region>
+7,az role assignment create --assignee <identity-id> --role <role> --scope <scope>
+8,az login --identity -u <identity-id>
+9,az keyvault list
+10,az keyvault secret list --vault-name <vault-name>
+11,az keyvault set-policy -n <vault-name> --secret-permissions get list --object-id <object-id>
+12,az keyvault secret show --id <secret-id>
+13,az storage account list
+14,az storage account keys list -g <resource-group> -n <storage-account-name>
+15,az vm list -g <resource-group>
+16,az vm run-command invoke -g <resouce-group> -n <vm-name> --command-id RunShellScript --scripts "getent passwd | awk -F: '{ print $1}'"
+17,az vm run-command invoke -g <resource-group> -n <vm-name> --command-id RunShellScript --scripts "groups <linux-account-name>"
+18,az vm user update -u <account-name> -p <account-password> -n <vm-name> -g <resource-group>
+19,az network nsg list
+20,az vm run-command invoke --command-id RunPowerShellScript --name <vm-name> -g <resource-group> --script "net user"
+21,az vm run-command invoke --command-id RunPowerShellScript --name <vm-name> -g <resource-group> --script "net user <windows-account-name> <windows-account-password> /add"
+22,az vm run-command invoke --command-id RunPowerShellScript --name <vm-name> -g <resource-group> --script "net localgroup Administrators <windows-account-name> /add"
+23,az network nsg rule create -g <resource-group> --nsg-name <nsg-name> -n OpenRDPForMePlease --source-address-prefixes <source-address> --access Allow --priority 1001 --destination-port-ranges 3389

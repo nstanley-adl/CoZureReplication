@@ -507,6 +507,8 @@ def importer():
 
     target.add_attribute(attr)
 
+    activity.execute_activity()
+
     # Save stores
     command_store.save()
     activity_store.save()
@@ -516,4 +518,5 @@ def importer():
 
 
 if __name__ == '__main__':
-    debug_main()
+    importer()
+    # debug_main()

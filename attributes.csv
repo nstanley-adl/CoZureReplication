@@ -1,2 +1,17 @@
 index,attribute_name,activities(0..n)
 0,Blob,0,1,2
+1,create,3
+2,extension,4
+3,identity,5,9
+4,user-managed,6
+5,windows,7
+6,assignment,8
+7,list,10
+8,secret,11,13
+9,policy,12
+10,account,14
+11,keys,15
+12,vm,16
+13,run-command,17,18,21,22,23
+14,user,19
+15,nsg,20,24
