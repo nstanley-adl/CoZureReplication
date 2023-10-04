@@ -23,3 +23,12 @@ index,command_text
 21,az vm run-command invoke --command-id RunPowerShellScript --name <vm-name> -g <resource-group> --script "net user <windows-account-name> <windows-account-password> /add"
 22,az vm run-command invoke --command-id RunPowerShellScript --name <vm-name> -g <resource-group> --script "net localgroup Administrators <windows-account-name> /add"
 23,az network nsg rule create -g <resource-group> --nsg-name <nsg-name> -n OpenRDPForMePlease --source-address-prefixes <source-address> --access Allow --priority 1001 --destination-port-ranges 3389
+24,az group delete --name <resource-group>
+25,az group create --name <resource-group> --location <location>
+26,az vm identity assign -g <resource-group> -n <vm-name>
+27,az vm update -n <vm-name> -g <resource-group> --set identity.type='UserAssigned'
+28,az vm update -n <vm-name> -g <resource-group> --set identity.type="none"
+29,az identity create -g <resource-group> -n <user-assigned-identity>
+30,az vm identity remove -g <resource-group> -n <vm-name> --identities <user-assigned-identity>
+31,az login --service-principal -u <service-principal-id> -p <password> --tenant <tenant>
+32,az ad sp create-for-rbac --role="Owner" --scopes="/subscriptions/<subscription_id>"

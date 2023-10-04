@@ -1,4 +1,5 @@
 import re
+import subprocess
 from os.path import exists
 from typing import List
 
@@ -68,8 +69,11 @@ class Command:
                     words[k] = param_options[j][current_attempt[j]]
                     words[k + 1] = ""  # clear next
                     j += 1
-            print("> " + "".join(words))
-            # TODO: invoke command & break if successful.
+            full_command = "".join(words)
+            print("> " + full_command)
+            # return_code = subprocess.call(full_command, shell=True)
+            # if return_code == 0:
+            #     break
 
 
 class Activity:
@@ -426,7 +430,7 @@ class Target:
         self.attributes.append(attr)
 
 
-def debug_main() -> None:
+def main() -> None:
     # Create stores
     command_store = CommandStore("commands.csv")
     activity_store = ActivityStore("activities.csv", command_store)
@@ -518,5 +522,5 @@ def importer():
 
 
 if __name__ == '__main__':
-    importer()
-    # debug_main()
+    # importer()
+    main()
