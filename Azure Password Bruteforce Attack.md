@@ -12,7 +12,7 @@ doi:https://doi.org/10.1145/3607199.3607228
 ### Commands (terminals)
 ```
 c1 = az login -u <username> -p <password>
-c2 = az login -u <sqlserver> -p $accessToken --service-principal
+c2 = az login -u <resource> -p <access-token> --service-principal
 ```
 
 ### Activities (non-terminals)
