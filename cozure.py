@@ -6,7 +6,7 @@ from typing import List
 
 def convert_to_file_name(file_name: str) -> str:
     file_name = str(file_name).replace(" ", "-")
-    return "".join(x for x in file_name if x.isalnum())
+    return "".join(x for x in file_name if x.isalnum() or x == "-")
 
 
 
