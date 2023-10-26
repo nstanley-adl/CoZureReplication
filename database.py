@@ -8,8 +8,6 @@ def convert_to_file_name(file_name: str) -> str:
     file_name = str(file_name).replace(" ", "-")
     return "".join(x for x in file_name if x.isalnum() or x == "-")
 
-
-
 class Command:
     """
     Smallest building block, representing a single command.
@@ -522,5 +520,5 @@ def importer():
 
 
 if __name__ == '__main__':
-    # importer()
-    main()
+    importer()
+    #main()

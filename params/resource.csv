@@ -1,1 +1,3 @@
-/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/<resource-provider-namespace>/<resource-type>/<resource-name>
+/subscriptions/c14e9a70-3b20-437b-9374-ebd27b35e187/resourceGroups/<resource-group>/providers/<resource-provider-namespace>/<resource-type>/<resource-name>
+
+/subscriptions/c14e9a70-3b20-437b-9374-ebd27b35e187/resourceGroups/InternalSystem/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/

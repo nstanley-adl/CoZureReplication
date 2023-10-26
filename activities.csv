@@ -42,3 +42,6 @@ index,activity_name,commands(0..n)
 40,UploadToBlob,0
 41,ListBlobs,1
 42,DownloadFromBlob,2
+43,UploadToBlob,0
+44,ListBlobs,1
+45,DownloadFromBlob,2
